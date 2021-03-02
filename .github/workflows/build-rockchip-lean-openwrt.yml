@@ -83,7 +83,7 @@ jobs:
           ../scripts/preset-clash-core.sh armv8
           ../scripts/preset-terminal-tools.sh
 
-     - name: MOD index file
+      - name: MOD index file
         run: |
            cd $OPENWRTROOT/package/lean/autocore/files/arm
            sed -i '/Load Average/i\\t\t<tr><td width="33%"><%:Telegram%></td><td><a href="https://t.me/wikimao"><%:WikiHackers%></a></td></tr>' index.htm

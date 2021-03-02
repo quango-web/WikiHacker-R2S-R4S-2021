@@ -1,4 +1,4 @@
-# NanoPi R4S Firmware version 2021
+# NanoPi R2S / R4S Firmware version 2021
 
 ## Tips
 * Default Gateway: 192.168.2.1

@@ -247,7 +247,7 @@ jobs:
           body_path: release.txt
           files: ${{ env.FIRMWARE }}/*
         
-       - name: Delete Artifacts
+      - name: Delete Artifacts
         uses: geekyeggo/delete-artifact@v1
         with:
           name: |

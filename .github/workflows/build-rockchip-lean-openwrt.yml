@@ -222,17 +222,32 @@ jobs:
         run: |
           cd $OPENWRTROOT/bin/targets/$TARGET/
           ./transfer wet -s -p 16 --no-progress $FIRMWARE/*nanopi* 2>&1 | tee wetransfer-firmware.log
-          rm -rf *nanopi*
+          # rm -rf *nanopi*
           echo "::warning file=Firmware-Wetransfer.com::$(cat wetransfer-firmware.log | grep https)"
 
-      - name: Upload Other Files To WeTransfer
-        if: steps.organize.outputs.ORGANIZE_STATUS == 'success' && env.UPLOAD_WETRANSFER == 'true'
+      - name: Generate release tag
+        id: tag
+        if: env.UPLOAD_RELEASE == 'true' && !cancelled()
         run: |
-          cd $OPENWRTROOT/bin/targets/$TARGET/
-          ./transfer wet -s -p 16 --no-progress $FIRMWARE 2>&1 | tee wetransfer-other.log
-          echo "::warning file=Firmware-Wetransfer.com::$(cat wetransfer-other.log | grep https)"
-
-      - name: Delete Artifacts
+          echo "::set-output name=release_tag::$(date +"%Y.%m.%d")-Lean"
+          echo "::set-output name=release_date::$(date +"%Y.%m.%d")"
+          touch release.txt
+          [ $UPLOAD_COWTRANSFER = true ] && echo "🔗 [Cowtransfer](${{ steps.cowtransfer.outputs.url }})" >> release.txt
+          [ $UPLOAD_WETRANSFER = true ] && echo "🔗 [WeTransfer](${{ steps.wetransfer.outputs.url }})" >> release.txt
+          echo "::set-output name=status::success"
+          
+      - name: Upload firmware to release
+        uses: softprops/action-gh-release@v1
+        if: steps.tag.outputs.status == 'success' && !cancelled()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          name: ${{ steps.tag.outputs.release_date }} Lean OpenWrt
+          tag_name: ${{ steps.tag.outputs.release_tag }}
+          body_path: release.txt
+          files: ${{ env.FIRMWARE }}/*
+        
+       - name: Delete Artifacts
         uses: geekyeggo/delete-artifact@v1
         with:
           name: |

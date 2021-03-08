@@ -223,7 +223,7 @@ jobs:
         if: steps.organize.outputs.ORGANIZE_STATUS == 'success' && env.UPLOAD_WETRANSFER == 'true'
         run: |
           cd $OPENWRTROOT/bin/targets/$TARGET/
-          ./transfer wet -s -p 16 --no-progress $FIRMWARE/*nanopi* 2>&1 | tee wetransfer-firmware.log
+          ./transfer wet -s -p 16 --no-progress ${FIRMWARE}/*nanopi* 2>&1 | tee wetransfer-firmware.log
           echo "::warning file=Firmware-Wetransfer.com::$(cat wetransfer-firmware.log | grep https)"
 
       - name: Generate release tag

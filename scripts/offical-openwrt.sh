@@ -86,6 +86,9 @@ git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config
 svn co https://github.com/pymumu/smartdns/trunk/package/openwrt ../smartdns
 svn co https://github.com/project-openwrt/openwrt/trunk/package/ntlf9t/luci-app-smartdns ../luci-app-smartdns
 
+# Add luci-app-aliddns
+svn co https://github.com/281677160/openwrt-package/trunk/luci-app-aliddns
+
 # Add luci-udptools
 git clone --depth=1 https://github.com/zcy85611/openwrt-luci-kcp-udp
 

@@ -69,7 +69,11 @@ rm -rf ../lean/luci-theme-argon
 
 # Use immortalwrt's luci-app-netdata
 rm -rf ../lean/luci-app-netdata
-svn co https://github.com/immortalwrt/immortalwrt/trunk/package/ntlf9t/luci-app-netdata
+#svn co https://github.com/immortalwrt/immortalwrt/trunk/package/ntlf9t/luci-app-netdata
+svn co https://github.com/281677160/openwrt-package/trunk/luci-app-netdata
+
+# Add luci-app-wireguard
+svn co https://github.com/openwrt/luci/trunk/applications/luci-app-wireguard
 
 # Add tmate
 git clone --depth=1 https://github.com/project-openwrt/openwrt-tmate

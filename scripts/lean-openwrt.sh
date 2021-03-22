@@ -69,7 +69,6 @@ rm -rf ../lean/luci-theme-argon
 
 # Use immortalwrt's luci-app-netdata
 rm -rf ../lean/luci-app-netdata
-#svn co https://github.com/immortalwrt/immortalwrt/trunk/package/ntlf9t/luci-app-netdata
 svn co https://github.com/281677160/openwrt-package/trunk/luci-app-netdata
 
 # Add luci-app-wireguard
@@ -146,6 +145,9 @@ popd
 
 # Change default shell to zsh
 sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
+
+#Apply Patches
+#git am $GITHUB_WORKSPACE/patches/*.patch
 
 #DDNS
 rm -rf ./feeds/packages/net/ddns-scripts

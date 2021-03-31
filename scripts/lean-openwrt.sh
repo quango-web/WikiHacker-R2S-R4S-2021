@@ -76,6 +76,7 @@ svn co https://github.com/openwrt/luci/trunk/applications/luci-app-wireguard
 
 # Add tmate
 git clone --depth=1 https://github.com/project-openwrt/openwrt-tmate
+# svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/libs/msgpack-c packages/libs/msgpack-c
 
 # Add subconverter
 git clone --depth=1 https://github.com/tindy2013/openwrt-subconverter

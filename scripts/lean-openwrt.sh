@@ -13,6 +13,12 @@ pushd package/lean
 git clone --depth=1 https://github.com/fw876/helloworld
 popd
 
+# Add crypto from immortalwrt
+pushd package/lean
+rm -rf libcryptopp
+svn co https://github.com/immortalwrt/immortalwrt/trunk/openwrt-18.06/package/lean/libcryptopp
+popd
+
 # Clone community packages to package/community
 mkdir package/community
 pushd package/community

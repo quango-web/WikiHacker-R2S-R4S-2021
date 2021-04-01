@@ -16,7 +16,7 @@ popd
 # Add crypto from immortalwrt
 pushd package/lean
 rm -rf libcryptopp
-svn co https://github.com/immortalwrt/immortalwrt/trunk/openwrt-18.06/package/lean/libcryptopp
+svn co https://github.com/immortalwrt/immortalwrt/trunk/package/lean/libcryptopp
 popd
 
 # Clone community packages to package/community

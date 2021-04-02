@@ -13,12 +13,6 @@ pushd package/lean
 git clone --depth=1 https://github.com/fw876/helloworld
 popd
 
-# Add crypto from immortalwrt
-pushd package/lean
-rm -rf libcryptopp
-svn co https://github.com/immortalwrt/immortalwrt/trunk/package/lean/libcryptopp
-popd
-
 # Clone community packages to package/community
 mkdir package/community
 pushd package/community
@@ -38,8 +32,8 @@ git clone --depth=1 https://github.com/BoringCat/luci-app-mentohust
 git clone --depth=1 https://github.com/KyleRicardo/MentoHUST-OpenWrt-ipk
 
 # Add minieap & luci-proto-minieap
-git clone --depth=1 https://github.com/ysc3839/luci-proto-minieap
-svn co https://github.com/project-openwrt/openwrt/trunk/package/ntlf9t/minieap
+##git clone --depth=1 https://github.com/ysc3839/luci-proto-minieap
+##svn co https://github.com/project-openwrt/openwrt/trunk/package/ntlf9t/minieap
 
 # Add ServerChan
 git clone --depth=1 https://github.com/tty228/luci-app-serverchan
@@ -65,8 +59,8 @@ git clone --depth=1 https://github.com/lisaac/luci-lib-docker
 
 # Add luci-app-gowebdav
 #git clone --depth=1 https://github.com/project-openwrt/openwrt-gowebdav
-svn co https://github.com/immortalwrt/immortalwrt/trunk/package/ctcgfw/gowebdav
-svn co https://github.com/immortalwrt/immortalwrt/trunk/package/ctcgfw/luci-app-gowebdav
+##svn co https://github.com/immortalwrt/immortalwrt/trunk/package/ctcgfw/gowebdav
+##svn co https://github.com/immortalwrt/immortalwrt/trunk/package/ctcgfw/luci-app-gowebdav
 
 # Add luci-theme-argon
 git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon
@@ -82,17 +76,16 @@ svn co https://github.com/openwrt/luci/trunk/applications/luci-app-wireguard
 
 # Add tmate
 git clone --depth=1 https://github.com/project-openwrt/openwrt-tmate
-# svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/libs/msgpack-c packages/libs/msgpack-c
 
 # Add subconverter
 git clone --depth=1 https://github.com/tindy2013/openwrt-subconverter
 
 # Add gotop
-svn co https://github.com/project-openwrt/openwrt/trunk/package/ctcgfw/gotop
+##svn co https://github.com/project-openwrt/openwrt/trunk/package/ctcgfw/gotop
 
 # Add smartdns
-svn co https://github.com/pymumu/smartdns/trunk/package/openwrt ../smartdns
-svn co https://github.com/project-openwrt/openwrt/trunk/package/ntlf9t/luci-app-smartdns ../luci-app-smartdns
+##svn co https://github.com/pymumu/smartdns/trunk/package/openwrt ../smartdns
+##svn co https://github.com/project-openwrt/openwrt/trunk/package/ntlf9t/luci-app-smartdns ../luci-app-smartdns
 
 # Add luci-udptools
 git clone --depth=1 https://github.com/zcy85611/openwrt-luci-kcp-udp
@@ -104,8 +97,8 @@ git clone --depth=1 https://github.com/destan19/OpenAppFilter
 git clone --depth=1 https://github.com/NateLol/luci-app-oled
 
 # Add driver for rtl8821cu & rtl8812au-ac
-svn co https://github.com/project-openwrt/openwrt/branches/master/package/ctcgfw/rtl8812au-ac
-svn co https://github.com/project-openwrt/openwrt/branches/master/package/ctcgfw/rtl8821cu
+##svn co https://github.com/project-openwrt/openwrt/branches/master/package/ctcgfw/rtl8812au-ac
+##svn co https://github.com/project-openwrt/openwrt/branches/master/package/ctcgfw/rtl8821cu
 popd
 
 # Add netdata
@@ -154,7 +147,7 @@ popd
 sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
 
 #Apply Patches
-#git am $GITHUB_WORKSPACE/patches/*.patch
+git am $GITHUB_WORKSPACE/patches/*.patch
 
 #DDNS
 rm -rf ./feeds/packages/net/ddns-scripts

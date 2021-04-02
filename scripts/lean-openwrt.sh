@@ -75,7 +75,7 @@ svn co https://github.com/281677160/openwrt-package/trunk/luci-app-netdata
 svn co https://github.com/openwrt/luci/trunk/applications/luci-app-wireguard
 
 # Add tmate
-git clone --depth=1 https://github.com/project-openwrt/openwrt-tmate
+# git clone --depth=1 https://github.com/project-openwrt/openwrt-tmate
 
 # Add subconverter
 git clone --depth=1 https://github.com/tindy2013/openwrt-subconverter
